@@ -1,0 +1,25 @@
+services:
+  express-app:
+    build: .
+    restart: always
+    expose:
+      - "3000"
+    depends_on:
+      - db
+    env_file:
+      - .env
+  db:
+    image: postgres:15
+    restart: always
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+  nginx:
+    build: ../todo-list-frontend
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - express-app
