@@ -14,9 +14,8 @@ router.get('/subordinates', authenticateToken, UserController.getSubordinates)
 
 //Работа с задачами
 router.get('/', authenticateToken, TaskController.getAll);
-router.get('/:id', authenticateToken, TaskController.getById);
 router.post('/', authenticateToken, TaskController.create);
-router.patch('/:id', authenticateToken, TaskController.update);
-router.delete('/:id', authenticateToken, TaskController.delete);
+router.patch('/', authenticateToken, TaskController.update);
+router.delete('/', authenticateToken, TaskController.delete);
 
 module.exports = router;
