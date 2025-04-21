@@ -16,9 +16,9 @@ exports.up = function (knex) {
             .unsigned()
             .references('id')
             .inTable('users')
-            .onDelete('SET NULL'); // если удалён — подчинённый остаётся без руководителя
+            .onDelete('SET NULL'); 
 
-        table.timestamps(true, true); // created_at, updated_at
+        table.timestamps(true, true);
     });
 };
 exports.down = function (knex) {

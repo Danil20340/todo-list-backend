@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 exports.seed = async function(knex) {
   // Очищаем таблицу
@@ -9,10 +9,10 @@ exports.seed = async function(knex) {
   await knex('users').insert([
     {
       id: 1,
-      first_name: 'Ivan',
+      first_name: '',
       last_name: 'Petrov',
       middle_name: 'Sergeevich',
-      login: 'ivan',
+      login: 'admin',
       password_hash: password,
       manager_id: null, // Руководитель
     },
